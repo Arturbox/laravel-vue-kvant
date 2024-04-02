@@ -8,7 +8,7 @@ use App\Services\Storage\Factory\Interface\AbstractFactoryInterface;
 class FileFactory implements AbstractFactoryInterface
 {
 
-    public function createStatement(array $data): bool
+    public function save(array $data): bool
     {
         return true;
     }

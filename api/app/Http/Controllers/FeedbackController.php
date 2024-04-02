@@ -11,14 +11,14 @@ use Symfony\Component\HttpFoundation\Response as ResponseAlias;
 
 class FeedbackController extends Controller
 {
-    public function __construct(private readonly StorageService $bidService)
+    public function __construct(private readonly StorageService $storageService)
     {
     }
 
     public function store(StatementStorePayloadRequest $request): JsonResponse
     {
         try {
-            $this->bidService->bid($request->toArray());
+            $this->storageService->saveFeedback($request->toArray());
 
             return response()->json(
                 ['message' => 'success']

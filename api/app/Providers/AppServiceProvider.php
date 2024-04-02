@@ -15,7 +15,7 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(StorageService::class, fn() => new StorageService(
             $this->app->make(SwitchManager::class),
-            config('storage.storage')
+            config('storage.type')
         ));
     }
 

@@ -6,7 +6,7 @@ use App\Exceptions\ServiceException;
 
 final readonly class StorageService
 {
-    public function __construct(private SwitchManager $switchManager, private string $storage)
+    public function __construct(private SwitchManager $switchManager, private string $storageType)
     {
 
     }
@@ -14,11 +14,11 @@ final readonly class StorageService
     /**
      * @throws ServiceException
      */
-    public function bid(array $data): bool
+    public function saveFeedback(array $data): bool
     {
-        $factory = $this->switchManager->getFactory($this->storage);
+        $factory = $this->switchManager->getFactory($this->storageType);
 
-        return $factory->createStatement($data);
+        return $factory->save($data);
     }
 
 }

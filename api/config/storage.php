@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'storage' => env('FEEDBACK_STORAGE', 'mysql')
+    'type' => env('FEEDBACK_STORAGE', 'mysql')
 ];
